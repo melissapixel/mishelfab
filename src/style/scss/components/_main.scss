@@ -1,0 +1,232 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.main {
+  .block {
+    .container {
+      display: flex;
+      box-shadow: $shadow-lg;
+
+      .content {
+        min-width: 50%;
+        padding: 50px;
+      }
+
+      .content.text {
+        background: radial-gradient(circle at 15% 92%, rgba(84, 89, 187, .34), transparent 31%), linear-gradient(135deg, #151735, $dark-primary 58%, $primary-800);
+        border-radius: $radius-xl 0px 0px $radius-xl;
+
+        .pre-title {
+          color: $surface-elevated;
+          background: rgba(255, 255, 255, .10);
+          padding: 8px 13px;
+          border-radius: 999px;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: -.01em;
+          line-height: 1.15;
+        }
+        .pre-title::before {
+          content: "";
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: $secondary;
+          margin-right: 9px;
+        }
+        .title {
+          margin-top: 24px;
+          margin-bottom: 22px;
+          font-size: clamp(48px, 4.45vw, 68px);
+          color: $surface-base;
+          font-weight: 800;
+          letter-spacing: -.068em;
+          line-height: .91;
+
+          span {
+            color: $secondary;
+          }
+        }
+
+        .desc {
+          font-size: 18px;
+          color: rgba(255, 255, 255, .74);
+          font-weight: 500;
+          line-height: 1.52;
+        }
+
+        .button {
+          background: $secondary;
+          color: $dark-primary;
+          border: none;
+          padding: 16px 26px;
+          margin-top: 30px;
+          border-radius: 999px;
+          cursor: pointer;
+          font-weight: 800;
+          line-height: 1.1;
+        }
+          .button::after {
+            content: "→";
+            width: 28px;
+            height: 28px;
+            padding: 5px;
+            border-radius: 50%;
+            background: rgba(26, 28, 59, .1);
+            color: #151735;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-left: 9px;
+          }
+        
+        .text {
+          color: rgba(255, 255, 255, .58);
+          font-size: 12px;
+          line-height: 1.45;
+          font-weight: 500;
+          margin: 24px 0px 40px;
+        }
+
+        .facts {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          gap: 12px;
+          margin-bottom: 12px;
+
+          .fact {
+            display: flex;
+            flex-direction: column;
+
+            border: 1px solid rgba(255, 255, 255, .13);
+            border-radius: $radius-md;
+            background: rgba(255, 255, 255, .07);
+            backdrop-filter: blur(12px);
+            padding: 18px;
+            width: 45%;
+
+            color: $surface-base;
+            font-weight: 500;
+
+            strong {
+              margin-bottom: 9px;
+              font-size: 17px;
+              font-weight: 800;
+              letter-spacing: -.035em;
+              line-height: 1.1;
+              min-width: 100%;
+            }
+
+            span {
+              font-size: 13px;
+              color: rgba(255, 255, 255, .58);
+              line-height: 1.38;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+
+      .content.img {
+        background-image: url("../../img/bg/hero.png");
+        background-size: cover; 
+        border-radius: 0px $radius-xl $radius-xl 0px;
+
+        display: flex;
+        align-items: flex-end;
+
+        .img__card {
+            padding: 22px;
+            border: 1px solid rgba(255, 255, 255, .20);
+            border-radius: $radius-lg;
+            background: rgba(26, 28, 59, .68);
+            backdrop-filter: blur(16px);
+
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+
+          strong {
+            color: $secondary;
+            font-size: 22px;
+            letter-spacing: -.045em;
+            line-height: 1;
+            font-weight: 500;
+          }
+          span {
+            display: block;
+            color: rgba(255, 255, 255, .75);
+            font-size: 13px;
+            line-height: 1.45;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@include desktop-down {
+  .main {
+    .block {
+      .container {
+        flex-direction: column;
+
+        .content.text {
+          border-radius: $radius-xl $radius-xl 0px 0px;
+        }
+        .content.img {
+           border-radius: 0px 0px $radius-xl $radius-xl;
+           height: clamp(200px, 50vw, 690px);
+        }
+      }
+    }
+  }
+}
+
+@include tablet-down {
+  .main {
+    .block {
+      .container {
+        box-shadow: $radius-md;
+        .content {
+          padding: 40px 20px;
+        }
+        .content.text {
+          .button, .pre-title {
+            display: block;
+            width: 100%;
+          }
+          .desc {
+            display: block;
+            width: 100%;           
+          }
+
+          .facts {
+            justify-content: center;
+            gap: 5px;
+
+            .fact {
+              strong {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+
+        .content.img {
+          .img__card  {
+            padding: 16px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
