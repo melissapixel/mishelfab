@@ -1,5 +1,5 @@
 @use "variables" as *;
-
+@use "mixins" as *;
 
 * {
   margin: 0;
@@ -8,6 +8,28 @@
 }
 
 body {
-  background: surface-base;
+  background: $surface-base;
   font-family: Inter, Arial, sans-serif;
+}
+
+.block {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 0px 12px;
+
+  @include desktop-down {
+    max-width: 100%;
+    width: 100%;
+    padding: 18px 38px 12px;
+  }
+
+  @include desktop-down {
+    max-width: 100%;
+    width: 100%;
+    padding: 18px 18px 12px;
+  }
+}
+
+p {
+  color: $dark-neutral;
 }
