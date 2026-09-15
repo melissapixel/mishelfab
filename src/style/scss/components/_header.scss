@@ -1,0 +1,43 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+
+.header {
+  .block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__logo {
+      img {
+        width: min(236px, 43vw);
+      }
+    }
+    .header__text {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      .text {
+        font-size: 13px;
+        font-weight: 500;
+
+        @include tablet-down {
+          display: none;
+        }
+      }
+
+      button {
+        border: 1px solid $primary-200;
+        padding: 11px 18px;
+        border-radius: 999px;
+
+        color: $primary-800;
+        font-weight: 800;
+        font-size: 13px;
+        background: $surface-elevated;
+      }
+    }
+  }
+
+}
