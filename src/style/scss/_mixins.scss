@@ -1,5 +1,11 @@
+@mixin tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+
 @mixin desktop-down {
-  @media (max-width: 1120px) {
+  @media (max-width: 1400px) {
     @content;
   }
 }
