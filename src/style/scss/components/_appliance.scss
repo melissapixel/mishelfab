@@ -1,0 +1,163 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+
+.appliance-promo {
+  .block {
+    .container {
+      padding: 40px;
+      background: $dark-primary;
+      border-radius: 24px;
+
+      &__title {
+        .into {
+          font-size: 30px;
+          font-weight: 600;
+          line-height: 1.07;
+          letter-spacing: -.035em;
+          color: $surface-elevated;
+          display: block;
+        }
+        .saving {
+          color: $secondary;
+          font-size: clamp(80px, 11.2cqw, 148px);
+          line-height: 1;
+          letter-spacing: -.06em;
+          font-weight: 600;
+        }
+        .autro {
+          align-self: end;
+          margin-left: 30px;
+          font-size: 30px;
+          font-weight: 600;
+          line-height: 1.07;
+          letter-spacing: -.035em;
+          color: $surface-elevated;
+        }
+      }
+
+      &__cards {
+        display: flex;
+        gap: 20px;
+
+        .card {
+          display: flex;
+          justify-content: space-around;
+
+          padding: 24px;
+          border-radius: 12px;
+          background: #491e1e;
+
+          .card__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            gap: 20px;
+
+            .label {
+              font-size: 21px;
+              font-weight: 600;
+              line-height: 1.2;
+              letter-spacing: -.025em;
+              color: $surface-elevated;
+            }
+            .price {
+              font-size: 14px;
+              font-weight: 600;
+              letter-spacing: -.025em;
+              color: $surface-elevated;
+              span {
+                font-size: clamp(36px, 5.2cqw, 46px);
+                font-weight: 600;
+                line-height: 1;
+                letter-spacing: -.045em;
+              }
+            }
+          }
+
+          .card__visial {
+            img {
+              width: 142px;
+              height: 280px;
+              object-fit: contain;
+              filter: drop-shadow(10px 14px 12px #15162725);
+            }
+
+            .refrigerator {
+              width: 210px;
+            }
+          }
+        }
+
+        .card.first {
+          background: $primary-400;
+          flex: 1.2;
+        }
+        .card.second {
+          background: $secondary;
+          flex: 1;
+
+          .card__text > .label,.price {
+            color: $dark-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop-down {
+  .appliance-promo {
+    .block {
+      .container {
+        &__cards {
+          .card {
+            justify-content: space-between;
+
+            .card__visial {
+              img.refrigerator {
+                width: clamp(10px, 15vw, 210px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include tablet-down {
+  .appliance-promo {
+    .block {
+      .container {
+        padding: 15px;
+
+        &__title {
+          padding: 20px 0px;
+          .autro {
+            display: block;
+            margin-left: 0;
+          }
+        }
+        &__cards {
+          flex-direction: column;
+
+          .card {
+            .card__text {
+              max-width: 50%;
+            }
+            .card__visial {
+              width: 50%;
+
+              img.refrigerator {
+                width: 210px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
