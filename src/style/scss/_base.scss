@@ -30,6 +30,17 @@ body {
   }
 }
 
+.pre-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  line-height: 1.15;
+  padding: 8px 13px;
+
+  color: $dark-primary;
+  border-radius: 999px;
+}
+
 p {
   color: $dark-neutral;
 }
