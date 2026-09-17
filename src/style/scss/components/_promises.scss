@@ -1,0 +1,166 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+
+.promises {
+  padding: 58px 0;
+
+  .block {
+    .content {
+      background: radial-gradient(circle at 14% 100%, rgba(84, 89, 187, .30), transparent 30%), $dark-primary;
+      border-radius: $radius-xl;
+      box-shadow: $shadow-lg;
+      padding: 48px;
+
+      .promises__header {
+        .pre-title {
+          background: $secondary;
+          color: $dark-primary;
+        }
+        .header {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 46px;
+
+          h2 {
+            max-width: 830px;
+            margin: 20px 0 0;
+            font-size: clamp(36px, 4vw, 58px);
+            font-weight: 800;
+            letter-spacing: -.062em;
+            line-height: .98;
+            color: $surface-base;
+          }
+          p {
+            color: rgba(255, 255, 255, .68);
+            line-height: 1.55;
+            max-width: 500px;
+            align-self: end;
+          }
+        }
+
+        .promises__body {
+          display: flex;
+          gap: 12px;
+
+          .body__cards {
+            display: flex;
+            gap: 12px;
+            flex: 1;
+
+            .card {
+              padding: 24px 22px;
+              border: 1px solid rgba(255, 255, 255, .13);
+              border-radius: $radius-md;
+              background: rgba(255, 255, 255, .07);
+
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 0px;
+
+              strong {
+                margin-bottom: 18px;
+                color: $secondary;
+                font-size: 28px;
+                font-weight: 900;
+                letter-spacing: -.06em;
+                line-height: 1;
+              }
+              p {
+                color: rgba(255, 255, 255, .70);
+                font-size: 14px;
+                line-height: 1.45;
+                font-weight: 500;
+              }
+            }
+          }
+
+          .body_card {
+            .card {
+              display: flex;
+              min-height: 204px;
+              height: 100%;
+              flex-direction: column;
+              justify-content: space-between;
+              gap: 20px;
+              padding: 30px;
+              border-radius: $radius-lg;
+              background: $secondary;
+              color: $dark-primary;
+
+              .pre-title {
+                background: rgba(26, 28, 59, .10);
+                color: $dark-primary;
+                width: fit-content;
+              }
+              strong {
+                display: block;
+                max-width: 420px;
+                font-size: clamp(34px, 3.2vw, 52px);
+                font-weight: 900;
+                letter-spacing: -.068em;
+                line-height: .92;
+              }
+              p {
+                max-width: 430px;
+                margin: 0;
+                color: rgba(26, 28, 59, .72);
+                font-size: 15px;
+                font-weight: 800;
+                line-height: 1.45;
+              }
+              small {
+                display: block;
+                max-width: 430px;
+                color: rgba(26, 28, 59, .56);
+                font-size: 11px;
+                font-weight: 700;
+                line-height: 1.45;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include desktop-down {
+  .promises {
+    .block {
+      .content {
+        .promises__header {
+          .header {
+            flex-direction: column;
+            gap: 19px;
+            p {
+              align-self: start;
+              max-width: 100%;
+            }
+          }
+        }
+        .promises__body {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+
+@include tablet-down {
+  .promises {
+    .block {
+      .content {
+        padding: 24px;
+        .promises__body {
+          .body__cards {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}
