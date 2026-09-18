@@ -1,0 +1,15 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+
+.footer {
+  padding: 0 0 34px;
+  .block {
+    display: flex;
+    justify-content: center;
+    padding-top: 58px;
+    img {
+      width: 190px;
+    }
+  }
+}
